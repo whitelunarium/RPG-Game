@@ -104,7 +104,11 @@ class Player {
         this.scale = newScale;
 
         // Recalculate the player's size based on the new scale
-       
+        this.size = this.scale.height / this.scaleFactor; 
+
+        // Recalculate the player's velocity steps based on the new scale
+        this.xVelocity = this.scale.width / this.stepFactor;
+        this.yVelocity = this.scale.height / this.stepFactor;
 
         // Set the player's width and height to the new size (object is a square)
         this.width = this.size;
