@@ -136,7 +136,11 @@ class Player {
             frameY = directionData.row * frameHeight;
 
             // Draw the current frame of the sprite sheet
-            
+            GameEnv.ctx.drawImage(
+                this.spriteSheet,
+                frameX, frameY, frameWidth, frameHeight, // Source rectangle
+                this.position.x, this.position.y, this.width, this.height // Destination rectangle
+            );
 
             // Update the frame index for animation at a slower rate
             this.frameCounter++;
@@ -161,8 +165,7 @@ class Player {
         this.draw();
 
         // Update or change position according to velocity events
-        this.position.x += this.velocity.x;
-        this.position.y += this.velocity.y;
+        
 
         // Ensure the player stays within the canvas boundaries
         // Bottom of the canvas
