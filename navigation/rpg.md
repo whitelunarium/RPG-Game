@@ -39,4 +39,30 @@ permalink: /rpg/
 
     // Start game engine
     GameControl.start(assets);
+
+// Function to toggle fullscreen mode
+function toggleFullScreen() {
+    const canvas = document.getElementById("snake"); // Target the canvas for fullscreen
+    if (!document.fullscreenElement) {
+        canvas.requestFullscreen().catch(err => {
+            console.log(`Error attempting to enable fullscreen mode: ${err.message}`);
+        });
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+// Example: Trigger fullscreen mode on pressing the 'F' key
+document.addEventListener('keydown', function(event) {
+    if (event.key === "f" || event.key === "F") {
+        toggleFullScreen();
+    }
+});
+
+// Optional: Button to toggle fullscreen mode
+const fullscreenButton = document.getElementById('fullscreen-btn');
+if (fullscreenButton) {
+    fullscreenButton.addEventListener('click', toggleFullScreen);
+}
+    
 </script>
