@@ -97,8 +97,8 @@ class Player {
         const newScale = { width: GameEnv.innerWidth, height: GameEnv.innerHeight };
 
         // Adjust the player's position proportionally
-
-        
+        this.position.x = (this.position.x / this.scale.width) * newScale.width;
+        this.position.y = (this.position.y / this.scale.height) * newScale.height;
 
         // Update the player's scale to the new scale
         this.scale = newScale;
