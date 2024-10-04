@@ -143,10 +143,8 @@ class Player {
             );
 
             // Update the frame index for animation at a slower rate
-            this.frameCounter++;
-            if (this.frameCounter % this.animationRate === 0) {
-                this.frameIndex = (this.frameIndex + 1) % directionData.columns;
-            }
+
+            
         } else {
             // Draw default red square
             GameEnv.ctx.fillStyle = 'red';
@@ -165,7 +163,8 @@ class Player {
         this.draw();
 
         // Update or change position according to velocity events
-        
+        this.position.x += this.velocity.x;
+        this.position.y += this.velocity.y;
 
         // Ensure the player stays within the canvas boundaries
         // Bottom of the canvas
