@@ -152,45 +152,6 @@ class Player {
         }
     }
     
-// Assume mazeImg is already loaded as an image on an off-screen canvas
-// const mazeCanvas = document.createElement('canvas');
-// const mazeContext = mazeCanvas.getContext('2d');
-// mazeCanvas.width = mazeImg.width;
-// mazeCanvas.height = mazeImg.height;
-//mazeContext.drawImage(mazeImg, 0, 0);
-
-// Define wall color (e.g., black)
-//const wallColor = { r: 0, g: 0, b: 0, a: 255 };
-
-// Helper function to check pixel color at a given position
-//function isWall(x, y) {
-    //const imgData = mazeContext.getImageData(x, y, 1, 1).data;
-    //return (
-        //imgData[0] === wallColor.r &&
-        //imgData[1] === wallColor.g &&
-        //imgData[2] === wallColor.b &&
-        //imgData[3] === wallColor.a
-    );
-}
-
-// Modify updateCharacter to check for walls
-//function updateCharacter(direction) {
-    //let originalX = character.x;
-    //let originalY = character.y;
-
-    // Move based on direction
-    //if (direction === "up") character.y -= character.speed;
-    //if (direction === "down") character.y += character.speed;
-    // if (direction === "left") character.x -= character.speed;
-    //if (direction === "right") character.x += character.speed;
-
-    // Check if new position hits a wall
-   // if (isWall(character.x, character.y)) {
-        //character.x = originalX;
-        //character.y = originalY; // Revert if collision occurs
-    }
-}
-
     /**
      * Updates the player's position and ensures it stays within the canvas boundaries.
      * 
