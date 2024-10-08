@@ -56,12 +56,12 @@ permalink: /rpg/
         SCALE_FACTOR: 10,
         STEP_FACTOR: 1000,
         ANIMATION_RATE: 50,
-        pixels: {height: 175, width: 160},
+        pixels: {height: 159, width: 119},
         orientation: {rows: 4, columns: 3},
         down: {row: 0, start: 0, columns: 3},
-        left: {row: 1, start: 0, columns: 3},
-        right: {row: 2, start: 0, columns: 3},
-        up: {row: 3, start: 0, columns: 3},
+        left: {row: 2, start: 0, columns: 3},
+        right: {row: 3, start: 0, columns: 3},
+        up: {row: 1, start: 0, columns: 3},
     };
     const sprite = {src: sprite_src, data: sprite_data};
 
