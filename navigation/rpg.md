@@ -56,7 +56,7 @@ permalink: /rpg/
         SCALE_FACTOR: 10,
         STEP_FACTOR: 1000,
         ANIMATION_RATE: 50,
-        pixels: {height: 175, width: 160},
+        pixels: {height: 160, width: 120},
         orientation: {rows: 4, columns: 3},
         down: {row: 0, start: 0, columns: 3},
         left: {row: 1, start: 0, columns: 3},
