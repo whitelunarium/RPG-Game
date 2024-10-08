@@ -31,11 +31,11 @@ permalink: /rpg/
     };
     const image = {src: image_src, data: image_data};
 
-    const image_src = "{{site.baseurl}}/images/rpg/puzzlemaker-removebg-preview.png";
-    const image_data = {
-        pixels: {height: 400, width: 400}
-    };
-    const image = {src: image_src, data: image_data};
+    // const image_src = "{{site.baseurl}}/images/rpg/puzzlemaker-removebg-preview.png";
+    // const image_data = {
+        // pixels: {height: 400, width: 400}
+    // };
+    // const image = {src: image_src, data: image_data};
     
     // Sprite data
     const sprite_src = "{{site.baseurl}}/images/rpg/Bunny-Sprite.png";
