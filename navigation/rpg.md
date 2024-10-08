@@ -9,26 +9,7 @@ permalink: /rpg/
 <script type="module">
     import GameControl from '{{site.baseurl}}/assets/js/rpg/GameControl.js';
 
-    // Fullscreen toggle function
-    function toggleFullScreen() {
-        const canvas = document.getElementById('gameCanvas');
-        if (!document.fullscreenElement) {
-            if (canvas.requestFullscreen) {
-                canvas.requestFullscreen();
-            } else if (canvas.mozRequestFullScreen) { // Firefox
-                canvas.mozRequestFullScreen();
-            } else if (canvas.webkitRequestFullscreen) { // Chrome, Safari, and Opera
-                canvas.webkitRequestFullscreen();
-            } else if (canvas.msRequestFullscreen) { // IE/Edge
-                canvas.msRequestFullscreen();
-            }
-        } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            }
-        }
-    }
-
+   
     // Adjust canvas size to fit the screen
     function resizeCanvas() {
         const canvas = document.getElementById('gameCanvas');
@@ -50,6 +31,12 @@ permalink: /rpg/
     };
     const image = {src: image_src, data: image_data};
 
+    const image_src = "{{site.baseurl}}/images/rpg/41524.jpg";
+    const image_data = {
+        pixels: {height: 400, width: 400}
+    };
+    const image = {src: image_src, data: image_data};
+    
     // Sprite data
     const sprite_src = "{{site.baseurl}}/images/rpg/Bunny-Sprite.png";
     const sprite_data = {
@@ -71,7 +58,56 @@ permalink: /rpg/
     // Start game engine
     GameControl.start(assets);
 
+     // Fullscreen toggle function
+    function toggleFullScreen() {
+        const canvas = document.getElementById('gameCanvas');
+        if (!document.fullscreenElement) {
+            if (canvas.requestFullscreen) {
+                canvas.requestFullscreen();
+            } else if (canvas.mozRequestFullScreen) { // Firefox
+                canvas.mozRequestFullScreen();
+            } else if (canvas.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                canvas.webkitRequestFullscreen();
+            } else if (canvas.msRequestFullscreen) { // IE/Edge
+                canvas.msRequestFullscreen();
+            }
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+    }
+
+
     // Optionally add a button to toggle full-screen mode
     const canvas = document.getElementById('gameCanvas');
     canvas.addEventListener('click', toggleFullScreen); // Click to enter full-screen
+
+    // Fullscreen toggle function
+function toggleFullScreen() {
+    const canvas = document.getElementById('gameCanvas');
+    if (!document.fullscreenElement) {
+        if (canvas.requestFullscreen) {
+            canvas.requestFullscreen();
+        } else if (canvas.mozRequestFullScreen) { // Firefox
+            canvas.mozRequestFullScreen();
+        } else if (canvas.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+            canvas.webkitRequestFullscreen();
+        } else if (canvas.msRequestFullscreen) { // IE/Edge
+            canvas.msRequestFullscreen();
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
+}
+
+// Add event listener for the 'F' key to toggle fullscreen
+window.addEventListener('keydown', function(event) {
+    if (event.key === 'f' || event.key === 'F') { // Check if the F key is pressed
+        toggleFullScreen(); // Call the fullscreen toggle function
+    }
+});
+
 </script>
