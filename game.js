@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d");
 
 // Load the maze and player sprite
 const mazeImage = new Image();
-mazeImage.src = './RPG.md/maze.png';  // Use your actual path
+mazeImage.src = './RPG.md/puzzlemaker-removebg-preview.png';  // Use your actual path
 const playerSprite = new Image();
 playerSprite.src = 'puzzlemaker-removebg-preview.png'; // Replace with actual sprite path
 
