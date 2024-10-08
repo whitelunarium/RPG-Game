@@ -31,7 +31,7 @@ permalink: /rpg/
     };
     const image = {src: image_src, data: image_data};
 
-    const image_src = "{{site.baseurl}}/images/rpg/41524.jpg";
+    const image_src = "{{site.baseurl}}/images/rpg/puzzlemaker-removebg-preview.png";
     const image_data = {
         pixels: {height: 400, width: 400}
     };
