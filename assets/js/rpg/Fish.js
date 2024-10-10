@@ -15,19 +15,19 @@ class Fish extends Player {
 
     handleKeyDown({ keyCode }) {
         switch (keyCode) {
-            case 87: // 'W' key
+            case 38: // 'UpArrow' key
                 this.velocity.y -= this.yVelocity;
                 this.direction = 'up';
                 break;
-            case 65: // 'A' key
+            case 37: // 'LeftArrow' key
                 this.velocity.x -= this.xVelocity;
                 this.direction = 'left';
                 break;
-            case 83: // 'S' key
+            case 40: // 'DownArrow' key
                 this.velocity.y += this.yVelocity;
                 this.direction = 'down';
                 break;
-            case 68: // 'D' key
+            case 39: // 'RightArrow' key
                 this.velocity.x += this.xVelocity;
                 this.direction = 'right';
                 break;
@@ -43,16 +43,16 @@ class Fish extends Player {
      */
     handleKeyUp({ keyCode }) {
         switch (keyCode) {
-            case 87: // 'W' key
+            case 38: // 'UpArrow' key
                 this.velocity.y = 0;
                 break;
-            case 65: // 'A' key
+            case 37: // 'LeftArrow' key
                 this.velocity.x = 0;
                 break;
-            case 83: // 'S' key
+            case 40: // 'DownArrow' key
                 this.velocity.y = 0;
                 break;
-            case 68: // 'D' key
+            case 39: // 'RightArrow' key
                 this.velocity.x = 0;
                 break;
         }
