@@ -45,6 +45,18 @@ permalink: /rpg/
     };
     const sprite = {src: sprite_src, data: sprite_data};
 
+ // Fish sprite data
+    const fish_sprite_src = "{{site.baseurl}}/assets/images/rpg/fishies.png"; // Update with correct path
+    const fish_sprite_data = {
+        SCALE_FACTOR: 8,
+        STEP_FACTOR: 800,
+        ANIMATION_RATE: 60,
+        pixels: {height: 100, width: 100},
+        orientation: {rows: 2, columns: 4},
+        swim: {row: 0, start: 0, columns: 4},
+    };
+    const fish_sprite = {src: fish_sprite_src, data: fish_sprite_data};
+    
     // Assets for game
     const assets = {image: image, sprite: sprite};
 
