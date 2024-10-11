@@ -4,12 +4,9 @@ title: RPG
 permalink: /rpg/
 ---
 
-<canvas id='gameCanvas'></canvas>
-
 <script type="module">
     import GameControl from '{{site.baseurl}}/assets/js/rpg/GameControl.js';
 
-   
     // Adjust canvas size to fit the screen
     function resizeCanvas() {
         const canvas = document.getElementById('gameCanvas');
@@ -31,8 +28,9 @@ permalink: /rpg/
     };
     const image = {src: image_src, data: image_data};
 
-    const sprite_src = "{{site.baseurl}}/images/rpg/Bunny-Sprite.png";
-    const sprite_data = {
+    // Bunny sprite data
+    const bunny_sprite_src = "{{site.baseurl}}/images/rpg/Bunny-Sprite.png";
+    const bunny_sprite_data = {
         SCALE_FACTOR: 10,
         STEP_FACTOR: 1000,
         ANIMATION_RATE: 50,
@@ -43,15 +41,31 @@ permalink: /rpg/
         right: {row: 3, start: 0, columns: 3},
         up: {row: 1, start: 0, columns: 3},
     };
-    const sprite = {src: sprite_src, data: sprite_data};
-    
+    const bunny_sprite = {src: bunny_sprite_src, data: bunny_sprite_data};
+
+    // Fish sprite data
+    const fish_sprite_src = "{{site.baseurl}}/assets/images/rpg/fishies.png"; // Update with correct path
+    const fish_sprite_data = {
+        SCALE_FACTOR: 8,
+        STEP_FACTOR: 800,
+        ANIMATION_RATE: 60,
+        pixels: {height: 100, width: 100},
+        orientation: {rows: 2, columns: 4},
+        swim: {row: 0, start: 0, columns: 4},
+    };
+    const fish_sprite = {src: fish_sprite_src, data: fish_sprite_data};
+
     // Assets for game
-    const assets = {image: image, sprite: sprite};
+    const assets = {
+        image: image,
+        bunnySprite: bunny_sprite,
+        fishSprite: fish_sprite
+    };
 
     // Start game engine
     GameControl.start(assets);
 
-     // Fullscreen toggle function
+    // Fullscreen toggle function
     function toggleFullScreen() {
         const canvas = document.getElementById('gameCanvas');
         if (!document.fullscreenElement) {
@@ -71,10 +85,8 @@ permalink: /rpg/
         }
     }
 
-
     // Optionally add a button to toggle full-screen mode
     const canvas = document.getElementById('gameCanvas');
     canvas.addEventListener('click', toggleFullScreen); // Click to enter full-screen
 
 </script>
-
