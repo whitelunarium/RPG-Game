@@ -28,32 +28,34 @@ permalink: /rpg/
     };
     const image = {src: image_src, data: image_data};
 
-    // Bunny sprite data
-    const bunny_sprite_src = "{{site.baseurl}}/images/rpg/Bunny-Sprite.png";
-    const bunny_sprite_data = {
+  // Bunny sprite data
+    const bunny_src = "{{site.baseurl}}/images/rpg/Bunny-Sprite.png";
+    const fish_src = "{{site.baseurl}}/images/rpg/fishies.png"
+    const bunny_data = {
         SCALE_FACTOR: 10,
         STEP_FACTOR: 1000,
-        ANIMATION_RATE: 50,
-        pixels: {height: 159, width: 119},
-        orientation: {rows: 4, columns: 3},
-        down: {row: 0, start: 0, columns: 3},
-        left: {row: 2, start: 0, columns: 3},
-        right: {row: 3, start: 0, columns: 3},
-        up: {row: 1, start: 0, columns: 3},
+        ANIMATION_RATE: 100,
+        pixels: {height: 280, width: 256},
+        orientation: {rows: 4, columns: 3 },
+        down: {row: 0, start: 0, columns: 3 },
+        left: {row: 1, start: 0, columns: 3 },
+        right: {row: 2, start: 0, columns: 3 },
+        up: {row: 3, start: 0, columns: 3 },
     };
-    const bunny_sprite = {src: bunny_sprite_src, data: bunny_sprite_data};
-
-    // Fish sprite data
-    const fish_sprite_src = "{{site.baseurl}}/assets/images/rpg/fishies.png"; // Update with correct path
-    const fish_sprite_data = {
+    const fish_data = {
         SCALE_FACTOR: 8,
-        STEP_FACTOR: 800,
-        ANIMATION_RATE: 60,
-        pixels: {height: 100, width: 100},
-        orientation: {rows: 2, columns: 4},
-        swim: {row: 0, start: 0, columns: 4},
+        STEP_FACTOR: 1000,
+        ANIMATION_RATE: 100,
+        pixels: {height: 128, width: 97},
+        orientation: {rows: 4, columns: 3 },
+        down: {row: 0, start: 0, columns: 3 },
+        left: {row: 1, start: 0, columns: 3 },
+        right: {row: 2, start: 0, columns: 3 },
+        up: {row: 3, start: 0, columns: 3 },
     };
-    const fish_sprite = {src: fish_sprite_src, data: fish_sprite_data};
+
+    const sprite = {src: bunny_src, data: bunny_data};
+    const sprite2 = {src: fish_src, data: fish_data};
 
     // Assets for game
     const assets = {
