@@ -5,6 +5,12 @@ export class Background {
         if (imageSrc) {
             this.image = new Image();
             this.image.src = imageSrc.src;
+            this.image.onload = () => {
+                console.log("First background image loaded successfully.");
+            };
+            this.image.onerror = () => {
+                console.error("Failed to load the first background image.");
+            };
         } else {
             this.image = null;
         }
@@ -12,6 +18,12 @@ export class Background {
         if (imageSrc2) {
             this.image2 = new Image();
             this.image2.src = imageSrc2.src;
+            this.image2.onload = () => {
+                console.log("Second background image loaded successfully.");
+            };
+            this.image2.onerror = () => {
+                console.error("Failed to load the second background image.");
+            };
         } else {
             this.image2 = null;
         }
@@ -33,7 +45,6 @@ export class Background {
 
         // Draw the second background image as a stationary sprite
         if (this.image2) {
-            // Draw at a fixed position (adjust x, y as needed)
             const stationaryX = 0; // Set the desired x position
             const stationaryY = 0; // Set the desired y position
             ctx.drawImage(this.image2, stationaryX, stationaryY, this.image2.width, this.image2.height);
@@ -42,3 +53,4 @@ export class Background {
 }
 
 export default Background;
+
