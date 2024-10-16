@@ -23,17 +23,20 @@ export class Background {
         const height = GameEnv.innerHeight;
 
         // Draw the first background image if it exists
-        if (this.image1) {
-            ctx.drawImage(this.image1, 0, 0, width, height);
+        if (this.image) {
+            ctx.drawImage(this.image, 0, 0, width, height);
         } else {
             // Fill the canvas with a default color if no first background image is provided
             ctx.fillStyle = '#87CEEB';
             ctx.fillRect(0, 0, width, height);
         }
 
-        // Draw the second background image if it exists
+        // Draw the second background image as a stationary sprite
         if (this.image2) {
-            ctx.drawImage(this.image2, 0, 0, width, height);
+            // Draw at a fixed position (adjust x, y as needed)
+            const stationaryX = 0; // Set the desired x position
+            const stationaryY = 0; // Set the desired y position
+            ctx.drawImage(this.image2, stationaryX, stationaryY, this.image2.width, this.image2.height);
         }
     }
 }
