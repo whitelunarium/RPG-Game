@@ -9,7 +9,6 @@ permalink: /rpg/
 <script type="module">
     import GameControl from '{{site.baseurl}}/assets/js/rpg/GameControl.js';
 
-   
     // Adjust canvas size to fit the screen
     function resizeCanvas() {
         const canvas = document.getElementById('gameCanvas');
@@ -24,12 +23,19 @@ permalink: /rpg/
     // Call resizeCanvas initially to set the correct canvas size
     resizeCanvas();
 
-    // Background data
+    // Background data for the first image
     const image_src = "{{site.baseurl}}/images/rpg/41524.jpg";
     const image_data = {
         pixels: {height: 580, width: 1038}
     };
     const image = {src: image_src, data: image_data};
+
+    // Background data for the second image
+    const image_src2 = "{{site.baseurl}}/images/rpg/SimpleMaze.png"; // Replace with your second image path
+    const image_data2 = {
+        pixels: {height: 580, width: 1038} // Adjust dimensions as needed
+    };
+    const image2 = {src: image_src2, data: image_data2};
 
     const sprite_src = "{{site.baseurl}}/images/rpg/Bunny-Sprite.png";
     const sprite_data = {
@@ -45,13 +51,13 @@ permalink: /rpg/
     };
     const sprite = {src: sprite_src, data: sprite_data};
 
-    // Assets for game
-    const assets = {image: image, sprite: sprite};
+    // Assets for game, including both background images
+    const assets = {image: [image1, image2], sprite: sprite}; // Assuming GameControl expects an array for background images
 
     // Start game engine
     GameControl.start(assets);
 
-     // Fullscreen toggle function
+    // Fullscreen toggle function
     function toggleFullScreen() {
         const canvas = document.getElementById('gameCanvas');
         if (!document.fullscreenElement) {
@@ -70,6 +76,7 @@ permalink: /rpg/
             }
         }
     }
+</script>
 
 
     // Optionally add a button to toggle full-screen mode
