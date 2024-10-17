@@ -47,10 +47,24 @@ permalink: /rpg/
     };
     const sprite = {src: sprite_src, data: sprite_data};
 
+    const sprite_src2 = "{{site.baseurl}}/images/rpg/fishies.png";
+    const sprite_data2 = {
+        SCALE_FACTOR: 10,
+        STEP_FACTOR: 1000,
+        ANIMATION_RATE: 50,
+        pixels: {height: 159, width: 119},
+        orientation: {rows: 4, columns: 3},
+        down: {row: 0, start: 0, columns: 3},
+        left: {row: 2, start: 0, columns: 3},
+        right: {row: 3, start: 0, columns: 3},
+        up: {row: 1, start: 0, columns: 3},
+    };
+    const sprite2 = {src: sprite_src2, data: sprite_data2};
+
     // Assets for game, including both background images
     const assets = {
         image: [image, image2], // Pass both images
-        sprite: sprite
+        sprite: [sprite, sprite2]
     };
 
     // Start game engine
