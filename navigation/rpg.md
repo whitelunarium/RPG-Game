@@ -62,17 +62,15 @@ permalink: /rpg/
     const sprite2 = {src: sprite_src2, data: sprite_data2};
 
     // Assets for game, including both background images
-    const assets = {
-        image: [image, image2], // Ensure this is correctly structured
-        sprite: sprite, // Single sprite object for player
-        sprite2: sprite2 // Separate sprite object for fish
-    };
+const assets = {
+    image: [image, image2],
+    sprite: sprite, // Ensure it's a single object
+    sprite2: sprite2 // For the fish
+};
 
-// Initialize game control
-const gameControl = new GameControl(assets);
-
-    // Start game engine
-    GameControl.start(assets);
+// Start the game
+const gameControl = new GameControl();
+gameControl.start(assets); // Call the start method correctly
 
     // Fullscreen toggle function
     function toggleFullScreen() {
