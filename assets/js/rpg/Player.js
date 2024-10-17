@@ -141,11 +141,12 @@ export default Player;
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-// Load the maze and player sprite
+// Update these paths based on your directory structure
 const mazeImage = new Image();
-mazeImage.src = './RPG.md/maze.png';  // Ensure this path is correct
+mazeImage.src = './assets/images/maze.png';  // Correct path
 const playerSprite = new Image();
-playerSprite.src = './RPG.md/player.png'; // Ensure this path is correct
+playerSprite.src = './assets/images/player.png'; // Correct path
+
 
 let player = {
     x: 50,
