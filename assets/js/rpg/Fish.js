@@ -51,13 +51,6 @@ class Fish extends Player {
         this.direction = 'left'; // Initial direction
     }
 
-    isColliding(player) {
-        return (this.position.x < player.position.x + player.width &&
-                this.position.x + this.width > player.position.x &&
-                this.position.y < player.position.y + player.height &&
-                this.position.y + this.height > player.position.y);
-    }
-
     reset() {
         this.position = { x: GameEnv.innerWidth - this.size, y: GameEnv.innerHeight - this.size };
         this.resize()
