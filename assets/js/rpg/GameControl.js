@@ -7,6 +7,7 @@ const GameControl = {
         GameEnv.create(); // Create the Game World
         this.background = new Background(assets.image[0], assets.image[1]); // Pass both images
         this.player = new Player(assets.sprite || null);
+        this.fish = new Fish(assets.sprite2 || null);
         this.gameLoop();
     },
 
@@ -14,12 +15,14 @@ const GameControl = {
         GameEnv.clear(); // Clear the canvas
         this.background.draw(); // Draw the background images
         this.player.update(); // Update the player
+        this.fish.update();
         requestAnimationFrame(this.gameLoop.bind(this));
     },
 
     resize: function() {
         GameEnv.resize(); // Resize the canvas and player
         this.player.resize();
+        this.fish.resize
     }
 };
 
