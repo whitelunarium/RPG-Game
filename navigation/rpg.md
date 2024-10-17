@@ -63,9 +63,13 @@ permalink: /rpg/
 
     // Assets for game, including both background images
     const assets = {
-        image: [image, image2], // Pass both images
-        sprite: [sprite, sprite2]
+        image: [image, image2], // Ensure this is correctly structured
+        sprite: sprite, // Single sprite object for player
+        sprite2: sprite2 // Separate sprite object for fish
     };
+
+// Initialize game control
+const gameControl = new GameControl(assets);
 
     // Start game engine
     GameControl.start(assets);
