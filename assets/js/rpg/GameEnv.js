@@ -57,13 +57,19 @@ class GameEnv {
         const observer = new MutationObserver(mutations => {
             mutations.forEach(mutation => {
                 if (mutation.type === 'childList') {
-                    // Handle node additions if needed
-                    console.log('DOM changed:', mutation);
+                    console.log('DOM changed:', mutation); // Log or handle specific changes
                 }
             });
         });
 
         observer.observe(document.body, { childList: true, subtree: true });
+    }
+
+    // Optional: Method to disconnect observer when no longer needed
+    static disconnectObserver(observer) {
+        if (observer) {
+            observer.disconnect();
+        }
     }
 }
 
