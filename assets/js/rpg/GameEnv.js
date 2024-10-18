@@ -17,7 +17,19 @@ class GameEnv {
         this.innerWidth = window.innerWidth;
         this.innerHeight = window.innerHeight - this.top - this.bottom;
         this.size();
-        this.observeDOMChanges();
+        
+        // Setup MutationObserver to monitor DOM changes
+        const observer = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+                if (mutation.type === 'childList') {
+                    mutation.addedNodes.forEach(node => {
+                        console.log('Node added:', node);
+                    });
+                }
+            });
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
     }
 
     static setCanvas() {
@@ -51,25 +63,6 @@ class GameEnv {
 
     static clear() {
         this.ctx.clearRect(0, 0, this.innerWidth, this.innerHeight);
-    }
-
-    static observeDOMChanges() {
-        const observer = new MutationObserver(mutations => {
-            mutations.forEach(mutation => {
-                if (mutation.type === 'childList') {
-                    console.log('DOM changed:', mutation); // Log or handle specific changes
-                }
-            });
-        });
-
-        observer.observe(document.body, { childList: true, subtree: true });
-    }
-
-    // Optional: Method to disconnect observer when no longer needed
-    static disconnectObserver(observer) {
-        if (observer) {
-            observer.disconnect();
-        }
     }
 }
 
