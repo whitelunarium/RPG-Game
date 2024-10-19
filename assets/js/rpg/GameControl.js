@@ -1,31 +1,29 @@
 import GameEnv from './GameEnv.js';
+import Background from './Background.js';
 import Player from './Player.js';
-import Fish from './Fish.js';
 
-class GameControl {
-    constructor() {
-        // Initialization code if needed
-    }
-
-    start(assets = {}) {
+const GameControl = {
+    start: function(assets = {}) {
         GameEnv.create(); // Create the Game World
+        this.background = new Background(assets.image[0], assets.image[1]); // Pass both images
         this.player = new Player(assets.sprite || null);
-        this.fish = new Fish(assets.sprite2 || null);
         this.gameLoop();
-    }
+    },
 
-    gameLoop() {
+    gameLoop: function() {
         GameEnv.clear(); // Clear the canvas
+        this.background.draw(); // Draw the background images
         this.player.update(); // Update the player
-        this.fish.update(); // Update the fish
         requestAnimationFrame(this.gameLoop.bind(this));
-    }
+    },
 
-    resize() {
+    resize: function() {
         GameEnv.resize(); // Resize the canvas and player
         this.player.resize();
-        this.fish.resize();
     }
-}
+};
+
+// Detect window resize events
+window.addEventListener('resize', GameControl.resize.bind(GameControl));
 
 export default GameControl;
