@@ -20,6 +20,7 @@ const GameControl = {
     resize: function() {
         GameEnv.resize(); // Resize the canvas and player
         this.player.resize();
+        // add comment
     }
 };
 
