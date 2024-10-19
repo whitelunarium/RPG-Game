@@ -135,8 +135,6 @@ class Player {
     }
 }
 
-export default Player;
-
 // Set up the canvas
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
