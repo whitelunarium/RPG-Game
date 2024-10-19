@@ -1,8 +1,8 @@
 import GameEnv from './GameEnv.js';
 
-const SCALE_FACTOR = 25; // Default scaling factor
-const STEP_FACTOR = 100; // Default step factor
-const ANIMATION_RATE = 1; // Default animation rate
+const SCALE_FACTOR = 25; // 1/nth of the height of the canvas
+const STEP_FACTOR = 100; // 1/nth, or N steps up and across the canvas
+const ANIMATION_RATE = 1; // 1/nth of the frame rate
 
 class Player {
     constructor(sprite = null) {
@@ -61,6 +61,7 @@ class Player {
                 frameX, frameY, frameWidth, frameHeight,
                 this.position.x, this.position.y, this.width, this.height
             );
+
         } else {
             GameEnv.ctx.fillStyle = 'red';
             GameEnv.ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
@@ -91,8 +92,8 @@ class Player {
     }
 
     bindEventListeners() {
-        window.addEventListener('keydown', this.handleKeyDown.bind(this));
-        window.addEventListener('keyup', this.handleKeyUp.bind(this));
+        addEventListener('keydown', this.handleKeyDown.bind(this));
+        addEventListener('keyup', this.handleKeyUp.bind(this));
     }
 
     handleKeyDown({ keyCode }) {
@@ -133,5 +134,97 @@ class Player {
         }
     }
 }
+
+export default Player;
+
+// Set up the canvas
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+// Load the maze and player sprite
+const mazeImage = new Image();
+mazeImage.src = './RPG.md/maze.png';  // Ensure this path is correct
+const playerSprite = new Image();
+playerSprite.src = './RPG.md/player.png'; // Ensure this path is correct
+
+let player = {
+    x: 50,
+    y: 50,
+    width: 40,
+    height: 40,
+    speed: 5
+};
+
+const goal = {
+    x: 700,
+    y: 500,
+    width: 40,
+    height: 40
+};
+
+let keys = {};
+window.addEventListener("keydown", (e) => keys[e.key] = true);
+window.addEventListener("keyup", (e) => keys[e.key] = false);
+
+function detectCollision(newX, newY) {
+    let mazeData = ctx.getImageData(newX, newY, player.width, player.height).data;
+    for (let i = 0; i < mazeData.length; i += 4) {
+        if (mazeData[i] === 0 && mazeData[i + 1] === 0 && mazeData[i + 2] === 0) {
+            return true;  // Collision detected
+        }
+    }
+    return false;  // No collision
+}
+
+function checkGoal() {
+    if (
+        player.x < goal.x + goal.width &&
+        player.x + player.width > goal.x &&
+        player.y < goal.y + goal.height &&
+        player.y + player.height > goal.y
+    ) {
+        alert("You reached the goal! Congratulations!");
+    }
+}
+
+function movePlayer() {
+    let newX = player.x;
+    let newY = player.y;
+
+    if (keys["ArrowUp"]) newY -= player.speed;
+    if (keys["ArrowDown"]) newY += player.speed;
+    if (keys["ArrowLeft"]) newX -= player.speed;
+    if (keys["ArrowRight"]) newX += player.speed;
+
+    if (!detectCollision(newX, newY)) {
+        player.x = newX;
+        player.y = newY;
+    }
+}
+
+function drawPlayer() {
+    ctx.drawImage(playerSprite, player.x, player.y, player.width, player.height);
+}
+
+function drawGoal() {
+    ctx.fillStyle = "green";
+    ctx.fillRect(goal.x, goal.y, goal.width, goal.height);
+}
+
+function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(mazeImage, 0, 0);
+    drawGoal();
+    movePlayer();
+    drawPlayer();
+    checkGoal();
+    requestAnimationFrame(gameLoop);
+}
+
+mazeImage.onload = () => {
+    playerSprite.onload = () => {
+        gameLoop();
+    };
+};
 
 export default Player;
