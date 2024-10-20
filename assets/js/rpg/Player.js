@@ -69,6 +69,7 @@ class Player {
     }
 
     update() {
+        console.log("Update function called");
         this.draw();
         this.position.x += this.velocity.x;
         this.position.y += this.velocity.y;

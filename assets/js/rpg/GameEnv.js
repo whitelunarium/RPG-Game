@@ -12,13 +12,14 @@ class GameEnv {
 
     static create() {
         this.setCanvas();
+        console.log("Canvas and context set up", this.canvas, this.ctx);
         this.setTop();
         this.setBottom();
         this.innerWidth = window.innerWidth;
         this.innerHeight = window.innerHeight - this.top - this.bottom;
         this.size();
     }
-
+  
     static setCanvas() {
         this.canvas = document.getElementById('gameCanvas');
         this.ctx = this.canvas.getContext('2d');

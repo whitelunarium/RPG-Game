@@ -1,4 +1,5 @@
-
+// At the very top of your JavaScript file
+console.log("Starting script execution...");
 import GameEnv from './GameEnv.js';
 
 export class Background {
@@ -19,21 +20,21 @@ export class Background {
     }
 
     draw() {
+        console.log("Drawing background...");
         const ctx = GameEnv.ctx;
         const width = GameEnv.innerWidth;
         const height = GameEnv.innerHeight;
-
-        // Draw the first background image if it exists
+    
         if (this.image) {
+            console.log("Drawing first image");
             ctx.drawImage(this.image, 0, 0, width, height);
         } else {
-            // Fill the canvas with a default color if no first background image is provided
             ctx.fillStyle = '#87CEEB';
             ctx.fillRect(0, 0, width, height);
         }
-
-        // Draw the second stationary background image if it exists
+    
         if (this.image2) {
+            console.log("Drawing second image");
             ctx.drawImage(this.image2, 0, 0, width, height);
         }
     }
