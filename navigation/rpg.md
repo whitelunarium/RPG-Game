@@ -15,9 +15,10 @@ permalink: /rpg/
         canvas.height = window.innerHeight;
     }
 
+    resizeCanvas();
     document.addEventListener('fullscreenchange', resizeCanvas);
     window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
+    
 
     // Background data for the first image
     const image_src = "{{site.baseurl}}/images/rpg/41524.jpg";
@@ -27,7 +28,7 @@ permalink: /rpg/
     const image = {src: image_src, data: image_data};
 
     // Background data for the second image
-    const image_src2 = "{{site.baseurl}}/images/rpg/Maze_Background.png"; // Replace with your second image path
+    const image_src2 = "{{site.baseurl}}/images/rpg/Maze_Background.png"; 
     const image_data2 = {
         pixels: {height: 580, width: 1038}
     };
