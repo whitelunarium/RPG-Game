@@ -15,6 +15,7 @@ permalink: /rpg/
         canvas.height = window.innerHeight;
     }
 
+    //add comment
     resizeCanvas();
     document.addEventListener('fullscreenchange', resizeCanvas);
     window.addEventListener('resize', resizeCanvas);
